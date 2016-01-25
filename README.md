@@ -8,6 +8,13 @@ http://localhost:8080/swagger-ui.html
 http://localhost:8080/browser/index.html#/
 
 ## Spring Data REST with Paging and Sorting enabled
+
+http://localhost:8080/v1/driver/lastName/{lastName}/paged?sortOn={fieldName}&direction={direction asc|desc}&start={0 or greater}&size={any number}. Look at Swagger docs for more details.
+
+Example:
+http://localhost:8080/v1/driver/lastName/Dario/paged?sortOn=firstName&direction=asc&start=0&size=3
+
+OR Using Spring Data REST:
 http://localhost:8080/driverrepo
 
 Sample:
