@@ -32,5 +32,4 @@ public interface DriverRepository extends PagingAndSortingRepository<Driver, Lon
 	
 	@Query("select d from Driver d where d.firstName = ?1")
 	List<Driver> findByFirstNameQuery(String firstName);
-
 }

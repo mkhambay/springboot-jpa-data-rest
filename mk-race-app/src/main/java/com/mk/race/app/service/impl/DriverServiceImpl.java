@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mk.race.app.entity.Driver;
 import com.mk.race.app.repository.DriverRepository;
-import com.mk.race.app.service.DriverService;
+import com.mk.race.app.util.RaceApplicationException;
 
 
 
@@ -48,6 +48,9 @@ public class DriverServiceImpl {
 	@ApiOperation(value = "Get driver by first name", notes = "Get driver by first name")
 	public List<Driver> getDriverByFirstName(@PathVariable String firstName) {
 		List<Driver> result = driverRepository.findByFirstNameQuery(firstName);
+		if(result == null || result.size() == 0) {
+			throw new RaceApplicationException("Driver for firstName" + firstName + "not found in db", HttpStatus.NOT_FOUND.value());
+		}
 		return result;
 	}
 	
